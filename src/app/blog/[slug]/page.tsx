@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, User, Share2 } from 'lucide-react';
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 // Blog yazıları verisi (gerçek uygulamada veritabanından gelecek)
@@ -706,7 +706,8 @@ export const blogPosts: Record<string, any> = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogPosts[params.slug];
+  const { slug } = await params;
+  const post = blogPosts[slug];
   
   if (!post) {
     return {
@@ -718,7 +719,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Helken Tech Blog`,
     description: post.description,
     alternates: {
-      canonical: `https://helkentech.com/blog/${params.slug}`,
+      canonical: `https://helkentech.com/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
@@ -730,8 +731,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPost({ params }: Props) {
-  const post = blogPosts[params.slug];
+export default async function BlogPost({ params }: Props) {
+  const { slug } = await params;
+  const post = blogPosts[slug];
 
   if (!post) {
     return (
@@ -808,7 +810,7 @@ export default function BlogPost({ params }: Props) {
             <Share2 className="w-5 h-5 text-gray-600" />
             <span className="text-gray-600 font-semibold">Paylaş:</span>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://helkentech.com/blog/' + params.slug)}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-700 font-medium"
@@ -816,7 +818,7 @@ export default function BlogPost({ params }: Props) {
               Twitter
             </a>
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://helkentech.com/blog/' + params.slug)}`}
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-700 font-medium"
