@@ -12,13 +12,15 @@ const Footer = () => {
           {/* Şirket Bilgisi */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <div className="relative w-24 h-24">
+              <div className="relative w-20 h-20">
                 <Image
                   src="/helkonlogo2.png"
                   alt="Helken Tech"
-                  width={96}
-                  height={96}
-                  className="object-contain"
+                  width={80}
+                  height={80}
+                  className="object-contain drop-shadow-lg"
+                  unoptimized
+                  priority
                 />
               </div>
             </div>
