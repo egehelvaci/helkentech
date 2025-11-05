@@ -64,12 +64,12 @@ const Navbar = () => {
               <div className="relative">
                 <Image
                   src="/helkonlogo2.png"
-                  alt="Helken Tech"
+                  alt="Helken Tech Logo"
                   width={80}
                   height={80}
-                  className="object-contain drop-shadow-lg mix-blend-multiply"
+                  className="object-contain drop-shadow-lg"
                   priority
-                  style={{ backgroundColor: 'transparent' }}
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 group-hover:animate-shine pointer-events-none"></div>
               </div>

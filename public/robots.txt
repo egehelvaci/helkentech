@@ -1,0 +1,26 @@
+# robots.txt for Helken Tech
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://helkentech.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Google bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing bot
+User-agent: Bingbot
+Allow: /
+
+# Yandex bot
+User-agent: Yandex
+Allow: /
+

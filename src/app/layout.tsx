@@ -12,13 +12,29 @@ const inter = Inter({
 
 // Ana SEO Metadata - Tüm sayfalarda geçerli
 export const metadata: Metadata = {
-  metadataBase: new URL('https://helkentech.com'), // Kendi domain'inizi güncelleyin
+  metadataBase: new URL('https://helkentech.com'),
   title: {
-    default: 'Helken Tech - B2B Teknoloji Çözümleri',
+    default: 'Helken Tech - B2B Teknoloji Çözümleri | ERP, E-Ticaret, Ödeme Sistemleri',
     template: '%s | Helken Tech'
   },
-  description: 'Helken Tech, işletmenizi geleceğe taşıyan özelleştirilmiş ERP yazılımları, bulut altyapı yönetimi ve siber güvenlik çözümleri sunar. B2B teknoloji lideri.',
-  keywords: ['B2B teknoloji', 'ERP yazılımı', 'bulut altyapı', 'siber güvenlik', 'yazılım danışmanlığı', 'kurumsal çözümler'],
+  description: 'Helken Tech ile işletmenizi dijitalleştirin. ERP yazılımları, B2B satış sistemi, e-ticaret çözümleri, ödeme sistemi entegrasyonları ve bulut altyapı yönetimi. 5+ yıllık tecrübe ile Türkiye genelinde hizmet.',
+  keywords: [
+    'B2B teknoloji çözümleri',
+    'ERP yazılımı',
+    'B2B satış sistemi',
+    'e-ticaret çözümleri',
+    'ödeme sistemi entegrasyonu',
+    'sanal pos entegrasyonu',
+    'bulut altyapı yönetimi',
+    'yazılım danışmanlığı',
+    'kurumsal yazılım',
+    'dijital dönüşüm',
+    'Türkiye ERP',
+    'B2B e-ticaret platformu',
+    'özel yazılım geliştirme',
+    'stok yönetim sistemi',
+    'sipariş yönetim sistemi'
+  ],
   authors: [{ name: 'Helken Tech' }],
   creator: 'Helken Tech',
   publisher: 'Helken Tech',
@@ -38,15 +54,28 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://helkentech.com',
-    title: 'Helken Tech - B2B Teknoloji Çözümleri',
-    description: 'İşletmenizi geleceğe taşıyan profesyonel teknoloji çözümleri.',
+    title: 'Helken Tech - B2B Teknoloji Çözümleri | ERP, E-Ticaret, Ödeme Sistemleri',
+    description: 'ERP yazılımları, B2B satış sistemi, e-ticaret çözümleri ve ödeme sistemi entegrasyonları. 5+ yıllık tecrübe ile işletmenizi dijitalleştirin.',
     siteName: 'Helken Tech',
+    images: [
+      {
+        url: '/helkonlogo2.png',
+        width: 1200,
+        height: 630,
+        alt: 'Helken Tech - B2B Teknoloji Çözümleri',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Helken Tech - B2B Teknoloji Çözümleri',
-    description: 'İşletmenizi geleceğe taşıyan profesyonel teknoloji çözümleri.',
+    description: 'ERP, B2B satış, e-ticaret ve ödeme sistemi çözümleri ile işletmenizi dijitalleştirin.',
+    images: ['/helkonlogo2.png'],
   },
+  alternates: {
+    canonical: 'https://helkentech.com',
+  },
+  category: 'technology',
   robots: {
     index: true,
     follow: true,

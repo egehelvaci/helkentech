@@ -18,14 +18,29 @@ import Link from 'next/link';
 
 // Ana Sayfa SEO Metadata
 export const metadata: Metadata = {
-  title: 'Helken Tech - İşletmenizi Geleceğe Taşıyan B2B Teknoloji Çözümleri',
-  description: 'Helken Tech ile işletmenizi dijital dönüşüme hazırlayın. Özelleştirilmiş ERP yazılımları, bulut altyapı yönetimi ve siber güvenlik çözümlerimizle rekabette öne çıkın.',
-  keywords: ['B2B teknoloji çözümleri', 'özelleştirilmiş ERP', 'bulut altyapı', 'siber güvenlik', 'yazılım danışmanlığı', 'dijital dönüşüm'],
+  title: 'Helken Tech - ERP, B2B Satış, E-Ticaret ve Ödeme Sistemi Çözümleri',
+  description: 'Türkiye\'nin güvenilir B2B teknoloji ortağı Helken Tech. ERP yazılımları, B2B satış sistemi, e-ticaret platformu, ödeme sistemi entegrasyonları ve bulut altyapı hizmetleri. 5+ yıllık tecrübe, 10+ mutlu müşteri.',
+  keywords: [
+    'B2B teknoloji çözümleri Türkiye',
+    'ERP yazılımı İstanbul',
+    'B2B satış sistemi',
+    'e-ticaret platformu özel',
+    'ödeme sistemi entegrasyonu',
+    'sanal pos entegrasyonu 3d secure',
+    'bulut altyapı yönetimi',
+    'sipariş yönetim sistemi',
+    'stok yönetim yazılımı',
+    'müşteri portali B2B',
+    'dijital dönüşüm danışmanlığı',
+    'kurumsal yazılım geliştirme',
+    'özel yazılım çözümleri'
+  ],
   openGraph: {
-    title: 'Helken Tech - İşletmenizi Geleceğe Taşıyan B2B Teknoloji Çözümleri',
-    description: 'Özelleştirilmiş ERP, bulut altyapı ve siber güvenlik çözümleriyle işletmenizi geleceğe taşıyoruz.',
+    title: 'Helken Tech - ERP, B2B Satış, E-Ticaret ve Ödeme Sistemi Çözümleri',
+    description: 'ERP, B2B satış, e-ticaret ve ödeme sistemi entegrasyonları ile işletmenizi dijitalleştirin. 5+ yıllık tecrübe.',
     url: 'https://helkentech.com',
     type: 'website',
+    images: ['/helkonlogo2.png'],
   },
   alternates: {
     canonical: 'https://helkentech.com',
