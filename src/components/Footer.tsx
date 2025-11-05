@@ -11,19 +11,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Şirket Bilgisi */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="relative w-12 h-12">
+            <div className="flex items-center">
+              <div className="relative w-24 h-24">
                 <Image
                   src="/helkonlogo2.png"
-                  alt="Helken Tech Logo"
-                  width={48}
-                  height={48}
+                  alt="Helken Tech"
+                  width={96}
+                  height={96}
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-white">
-                Helken <span className="text-blue-400">Tech</span>
-              </span>
             </div>
             <p className="text-sm leading-relaxed">
               İşletmenizi geleceğe taşıyan profesyonel B2B teknoloji çözümleri.
