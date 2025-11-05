@@ -113,21 +113,36 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {isOpen && (
-          <div
-            className="lg:hidden fixed inset-0 bg-black/50 z-40"
-            onClick={() => setIsOpen(false)}
-          />
-        )}
-        
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen */}
         <div
-          className={`lg:hidden fixed inset-x-0 bottom-0 top-[80px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+          className={`lg:hidden fixed inset-0 top-0 bg-white transform transition-transform duration-300 ease-in-out z-50 ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex flex-col p-8 space-y-3 h-full overflow-y-auto bg-white">
+          {/* Close Button */}
+          <div className="flex justify-between items-center p-6 border-b border-gray-200">
+            <div className="relative w-16 h-16">
+              <Image
+                src="/helkonlogo2.png"
+                alt="Helken Tech"
+                width={64}
+                height={64}
+                className="object-contain"
+                priority
+                unoptimized
+              />
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-8 h-8 text-gray-900" />
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <div className="flex flex-col p-6 space-y-3 overflow-y-auto" style={{ height: 'calc(100vh - 100px)' }}>
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -143,7 +158,7 @@ const Navbar = () => {
               onClick={(e) => handleClick(e, '#demo')}
               className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-6 rounded-xl font-bold text-center hover:shadow-2xl hover:scale-[1.02] transition-all duration-200 mt-4 cursor-pointer shadow-xl text-xl"
             >
-              Demo Talep Et
+              Ücretsiz Demo Talep Et
             </a>
           </div>
         </div>
