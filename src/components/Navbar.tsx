@@ -31,7 +31,7 @@ const Navbar = () => {
     { href: '/', label: 'Ana Sayfa' },
     { href: '#hizmetler', label: 'Hizmetlerimiz' },
     { href: '#hakkimizda', label: 'Hakkımızda' },
-    { href: '#referanslar', label: 'Referanslar' },
+    { href: '/blog', label: 'Blog' },
     { href: '#demo', label: 'İletişim' },
   ];
 
