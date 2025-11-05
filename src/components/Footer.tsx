@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -10,9 +11,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Şirket Bilgisi */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">H</span>
+            <div className="flex items-center space-x-3">
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/helkonlogo2.png"
+                  alt="Helken Tech Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold text-white">
                 Helken <span className="text-blue-400">Tech</span>
