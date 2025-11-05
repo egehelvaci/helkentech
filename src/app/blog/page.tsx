@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Calendar, User } from 'lucide-react';
+import { blogPosts as blogPostsData } from '../blog/[slug]/page';
 
 export const metadata: Metadata = {
   title: 'Blog - ERP, B2B ve E-Ticaret Hakkında Yazılar',
@@ -11,62 +12,16 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      slug: 'erp-nedir-isletmelere-faydalari',
-      title: 'ERP Nedir? İşletmelere Sağladığı 10 Önemli Fayda',
-      excerpt: 'ERP (Enterprise Resource Planning) sistemleri işletmelerin tüm süreçlerini tek bir platformda yönetmesini sağlar. Bu yazıda ERP\'nin işletmenize sağlayacağı faydaları detaylı inceliyoruz.',
-      date: '2025-01-15',
-      author: 'Helken Tech',
-      category: 'ERP Sistemleri',
-      readTime: '8 dakika'
-    },
-    {
-      slug: 'b2b-satis-sistemi-neden-gerekli',
-      title: 'B2B Satış Sistemi: İşletmeler İçin Neden Gerekli?',
-      excerpt: 'B2B satış süreçlerini dijitalleştirmek, müşteri memnuniyetini artırır ve maliyetleri düşürür. Modern B2B satış sistemlerinin avantajlarını keşfedin.',
-      date: '2025-01-10',
-      author: 'Helken Tech',
-      category: 'B2B Çözümler',
-      readTime: '6 dakika'
-    },
-    {
-      slug: 'e-ticaret-sitesi-acmak-icin-gerekenler',
-      title: 'E-Ticaret Sitesi Açmak İçin Gerekenler: Kapsamlı Rehber',
-      excerpt: 'E-ticaret sitenizi kurarken nelere dikkat etmelisiniz? Ödeme sistemleri, stok yönetimi ve müşteri deneyimi için ipuçları.',
-      date: '2025-01-05',
-      author: 'Helken Tech',
-      category: 'E-Ticaret',
-      readTime: '10 dakika'
-    },
-    {
-      slug: 'odeme-sistemi-entegrasyonu-rehberi',
-      title: 'Ödeme Sistemi Entegrasyonu: Sanal POS ve 3D Secure',
-      excerpt: 'Online ödeme almak için sanal POS entegrasyonu nasıl yapılır? 3D Secure güvenliği nedir? Tüm detaylar bu rehberde.',
-      date: '2024-12-28',
-      author: 'Helken Tech',
-      category: 'Ödeme Sistemleri',
-      readTime: '7 dakika'
-    },
-    {
-      slug: 'dijital-donusum-rehberi-kobiler',
-      title: 'KOBİ\'ler İçin Dijital Dönüşüm Rehberi 2025',
-      excerpt: 'Küçük ve orta ölçekli işletmelerin dijital dönüşüm yolculuğunda izlemesi gereken adımlar ve dikkat edilmesi gereken noktalar.',
-      date: '2024-12-20',
-      author: 'Helken Tech',
-      category: 'Dijital Dönüşüm',
-      readTime: '12 dakika'
-    },
-    {
-      slug: 'bulut-altyapi-avantajlari',
-      title: 'Bulut Altyapı: İşletmeler İçin 7 Büyük Avantaj',
-      excerpt: 'Bulut bilişim teknolojileri işletmelere esneklik, maliyet tasarrufu ve güvenlik sağlar. Bulut altyapının avantajlarını keşfedin.',
-      date: '2024-12-15',
-      author: 'Helken Tech',
-      category: 'Bulut Teknolojileri',
-      readTime: '5 dakika'
-    }
-  ];
+  // Blog posts objesini array'e çevirip slug ekle
+  const blogPosts = Object.entries(blogPostsData).map(([slug, post]) => ({
+    slug,
+    title: post.title,
+    excerpt: post.description, // description'ı excerpt olarak kullan
+    date: post.date,
+    author: post.author,
+    category: post.category,
+    readTime: post.readTime
+  }));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">

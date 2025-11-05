@@ -7,7 +7,7 @@ type Props = {
 }
 
 // Blog yazıları verisi (gerçek uygulamada veritabanından gelecek)
-const blogPosts: Record<string, any> = {
+export const blogPosts: Record<string, any> = {
   'erp-nedir-isletmelere-faydalari': {
     title: 'ERP Nedir? İşletmelere Sağladığı 10 Önemli Fayda',
     description: 'ERP (Enterprise Resource Planning) sistemleri işletmelerin tüm süreçlerini tek bir platformda yönetmesini sağlar.',
