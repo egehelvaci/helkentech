@@ -115,17 +115,17 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed inset-0 top-[72px] bg-white transform transition-transform duration-300 ease-in-out ${
+          className={`lg:hidden fixed inset-0 top-[72px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40 ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex flex-col p-6 space-y-4">
+          <div className="flex flex-col p-6 space-y-2 h-full overflow-y-auto bg-gradient-to-b from-white to-gray-50">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                className="text-lg font-medium text-gray-700 hover:text-blue-600 py-3 border-b border-gray-100 transition-colors duration-200 cursor-pointer"
+                className="text-lg font-semibold text-gray-900 hover:text-white hover:bg-blue-600 py-4 px-4 rounded-lg border border-gray-200 hover:border-blue-600 transition-all duration-200 cursor-pointer shadow-sm"
               >
                 {link.label}
               </a>
@@ -133,7 +133,7 @@ const Navbar = () => {
             <a
               href="#demo"
               onClick={(e) => handleClick(e, '#demo')}
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-4 rounded-lg font-semibold text-center hover:shadow-lg transition-all duration-200 mt-4 cursor-pointer"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-5 rounded-lg font-bold text-center hover:shadow-2xl hover:scale-105 transition-all duration-200 mt-6 cursor-pointer shadow-lg text-lg"
             >
               Demo Talep Et
             </a>
