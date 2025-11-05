@@ -749,43 +749,49 @@ export default async function BlogPost({ params }: Props) {
   }
 
   return (
-    <article className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white pt-32 pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
+    <article className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Header with animated gradient */}
+      <header className="relative bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-700 text-white pt-32 pb-20 px-4 overflow-hidden">
+        {/* Animated background shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-cyan-300/10 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto relative z-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-blue-100 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-8 transition-all hover:gap-3 group"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Blog'a Dön
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span className="font-medium">Blog'a Dön</span>
           </Link>
 
           <div className="mb-6">
-            <span className="inline-block bg-white/20 px-4 py-2 rounded-full text-sm font-semibold">
+            <span className="inline-block bg-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-sm font-bold border border-white/30 shadow-lg">
               {post.category}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight drop-shadow-lg">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 text-blue-100">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-4 text-white/95 text-sm md:text-base">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
               <Calendar className="w-5 h-5" />
-              <span>{new Date(post.date).toLocaleDateString('tr-TR', { 
+              <span className="font-medium">{new Date(post.date).toLocaleDateString('tr-TR', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
               <User className="w-5 h-5" />
-              <span>{post.author}</span>
+              <span className="font-medium">{post.author}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span>{post.readTime} okuma</span>
+            <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg font-medium">
+              {post.readTime} okuma
             </div>
           </div>
         </div>
@@ -793,55 +799,74 @@ export default async function BlogPost({ params }: Props) {
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <div 
-          className="prose prose-lg max-w-none
-            prose-headings:text-gray-900 prose-headings:font-bold
-            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-            prose-ul:my-6 prose-li:text-gray-700
-            prose-strong:text-gray-900"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        {/* Main Content Card */}
+        <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-12">
+          <div 
+            className="prose prose-lg max-w-none
+              prose-headings:text-gray-900 prose-headings:font-bold
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-blue-100
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-blue-700
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+              prose-ul:my-6 prose-li:text-gray-700 prose-li:mb-2
+              prose-strong:text-gray-900 prose-strong:font-bold
+              prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        </div>
 
-        {/* Share Buttons */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex items-center gap-4">
-            <Share2 className="w-5 h-5 text-gray-600" />
-            <span className="text-gray-600 font-semibold">Paylaş:</span>
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 font-medium"
-            >
-              Twitter
-            </a>
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 font-medium"
-            >
-              LinkedIn
-            </a>
+        {/* Share Buttons - Modern Design */}
+        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-gradient-to-br from-blue-600 to-cyan-500 p-3 rounded-full">
+                <Share2 className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-gray-900 font-bold text-lg">Bu yazıyı paylaş:</span>
+            </div>
+            <div className="flex gap-4">
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white hover:bg-blue-600 text-blue-600 hover:text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-xl hover:scale-105 border-2 border-blue-200"
+              >
+                Twitter
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://helkentech.com/blog/' + slug)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white hover:bg-blue-600 text-blue-600 hover:text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-xl hover:scale-105 border-2 border-blue-200"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">
-            İşletmeniz için ERP Çözümü mü Arıyorsunuz?
-          </h2>
-          <p className="text-blue-50 mb-6">
-            Uzman ekibimizle tanışın, işletmenize özel çözümler keşfedin.
-          </p>
-          <Link
-            href="/#demo"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all"
-          >
-            Ücretsiz Demo Talep Edin
-          </Link>
+        {/* CTA - Premium Design */}
+        <div className="relative bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-700 rounded-3xl p-10 md:p-12 text-center text-white overflow-hidden shadow-2xl">
+          {/* Background decoration */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-1/2 -right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-1/2 -left-1/4 w-64 h-64 bg-cyan-300/10 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 drop-shadow-lg">
+              İşletmeniz için Özel Çözümler mi Arıyorsunuz?
+            </h2>
+            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              Uzman ekibimizle tanışın, işletmenize özel teknoloji çözümlerini keşfedin. 
+              5+ yıllık tecrübemiz ve 10+ mutlu müşterimizle yanınızdayız.
+            </p>
+            <Link
+              href="/#demo"
+              className="inline-block bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all transform"
+            >
+              🚀 Ücretsiz Demo Talep Edin
+            </Link>
+          </div>
         </div>
       </div>
     </article>
